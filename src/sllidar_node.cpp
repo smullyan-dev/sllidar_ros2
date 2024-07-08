@@ -175,7 +175,7 @@ class SLlidarNode : public rclcpp::Node
         if(drv->isConnected())
         {
             RCLCPP_DEBUG(this->get_logger(),"Start motor");
-            sl_result ans=drv->setMotorSpeed();
+            sl_result ans=drv->setMotorSpeed(1200);
             if (SL_IS_FAIL(ans)) {
                 RCLCPP_WARN(this->get_logger(), "Failed to start motor: %08x", ans);
                 return false;
@@ -305,7 +305,7 @@ public:
         start_motor_service = this->create_service<std_srvs::srv::Empty>("start_motor", 
                                 std::bind(&SLlidarNode::start_motor,this,std::placeholders::_1,std::placeholders::_2));
 
-        drv->setMotorSpeed();
+        drv->setMotorSpeed(1200);
 
         LidarScanMode current_scan_mode;
         if (scan_mode.empty()) {
