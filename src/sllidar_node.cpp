@@ -304,7 +304,7 @@ public:
                                 std::bind(&SLlidarNode::stop_motor,this,std::placeholders::_1,std::placeholders::_2));
         start_motor_service = this->create_service<std_srvs::srv::Empty>("start_motor", 
                                 std::bind(&SLlidarNode::start_motor,this,std::placeholders::_1,std::placeholders::_2));
-
+        RCLCPP_INFO(this->get_logger(),"Setting Motor speed to 1200");
         drv->setMotorSpeed(1200);
 
         LidarScanMode current_scan_mode;
