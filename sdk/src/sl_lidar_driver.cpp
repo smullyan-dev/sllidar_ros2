@@ -1013,7 +1013,7 @@ namespace sl {
                 sl_lidar_payload_motor_pwm_t motor_rpm;
                 motor_rpm.pwm_value = speed;
 
-                std::cout << "SET_MOTOR_RPM" << std::endl; 
+                std::cout << "SET_MOTOR_RPM " << speed << std::endl; 
                 ans = _sendCommandWithoutResponse(SL_LIDAR_CMD_HQ_MOTOR_SPEED_CTRL, &motor_rpm, sizeof(motor_rpm), true);
                 if (!ans) return ans;
                 delay(10);
