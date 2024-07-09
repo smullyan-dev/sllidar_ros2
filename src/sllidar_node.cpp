@@ -346,6 +346,10 @@ public:
             max_distance = (float)current_scan_mode.max_distance;
             RCLCPP_INFO(this->get_logger(),"current scan mode: %s, sample rate: %d Khz, max_distance: %.1f m, scan frequency:%.1f Hz, ", 
                                 current_scan_mode.scan_mode,(int)(1000/current_scan_mode.us_per_sample+0.5),max_distance, scan_frequency);
+            if(angle_compensate)
+            {
+                RCLCPP_INFO(this->get_logger(), "Anglecompensate on");
+            }
         }
         else
         {
@@ -370,6 +374,7 @@ public:
                 float angle_max = DEG2RAD(360.0f);
                 if (op_result == SL_RESULT_OK) {
                     if (angle_compensate) {
+                        
                         //const int angle_compensate_multiple = 1;
                         const int angle_compensate_nodes_count = 360*angle_compensate_multiple;
                         int angle_compensate_offset = 0;
