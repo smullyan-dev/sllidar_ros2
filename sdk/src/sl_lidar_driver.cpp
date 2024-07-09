@@ -1157,7 +1157,7 @@ namespace sl {
     protected:
         sl_result startMotor()
         {
-            return setMotorSpeed(DEFAULT_MOTOR_SPEED);
+            return setMotorSpeed(1200);
         }
 
         u_result getDesiredSpeed(sl_lidar_response_desired_rot_speed_t & motorSpeed, sl_u32 timeoutInMs = DEFAULT_TIMEOUT)
