@@ -93,7 +93,7 @@ class SLlidarNode : public rclcpp::Node
         if(channel_type == "udp")
             this->get_parameter_or<float>("scan_frequency", scan_frequency, 20.0);
         else
-            this->get_parameter_or<float>("scan_frequency", scan_frequency, 10.0);
+            this->get_parameter_or<float>("scan_frequency", scan_frequency, 20.0);
     }
 
     bool getSLLIDARDeviceInfo(ILidarDriver * drv)
