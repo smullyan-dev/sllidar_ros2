@@ -46,6 +46,7 @@
 #include <memory>
 #include <atomic>
 #include <deque>
+#include <iostream>
 
 #include "dataunpacker/dataunpacker.h"
 #include "sl_async_transceiver.h"
@@ -1003,7 +1004,7 @@ namespace sl {
                 sl_lidar_payload_motor_pwm_t motor_pwm;
                 motor_pwm.pwm_value = speed;
 
-
+                std::cout << "SET_MOTOR_PWM" << std::endl; 
                 ans = _sendCommandWithoutResponse(SL_LIDAR_CMD_SET_MOTOR_PWM, &motor_pwm, sizeof(motor_pwm), true);
                 if (!ans) return ans;
                 delay(10);
@@ -1012,6 +1013,7 @@ namespace sl {
                 sl_lidar_payload_motor_pwm_t motor_rpm;
                 motor_rpm.pwm_value = speed;
 
+                std::cout << "SET_MOTOR_RPM" << std::endl; 
                 ans = _sendCommandWithoutResponse(SL_LIDAR_CMD_HQ_MOTOR_SPEED_CTRL, &motor_rpm, sizeof(motor_rpm), true);
                 if (!ans) return ans;
                 delay(10);
