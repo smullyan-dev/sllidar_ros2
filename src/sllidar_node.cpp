@@ -363,12 +363,12 @@ public:
             sl_lidar_response_measurement_node_hq_t nodes[8192];
             size_t   count = _countof(nodes);
 
-            start_scan_time = this->now();
+            // start_scan_time = this->now();
             op_result = drv->grabScanDataHq(nodes, count);
-            end_scan_time = this->now();
-            scan_duration = (end_scan_time - start_scan_time).seconds();
+            // end_scan_time = this->now();
+            // scan_duration = (end_scan_time - start_scan_time).seconds();
             
-            RCLCPP_INFO(this->get_logger(), "Scan duration: %.2fs", scan_duration);
+            // RCLCPP_INFO(this->get_logger(), "Scan duration: %.2fs", scan_duration);
             if (op_result == SL_RESULT_OK) {
                 op_result = drv->ascendScanData(nodes, count);
                 float angle_min = DEG2RAD(0.0f);
